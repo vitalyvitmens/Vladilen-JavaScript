@@ -8,6 +8,7 @@ alert(carName)
 alert(maxCarSpeed)
 alert(carOwner)
 
+// TODO: Задание #4
 maxCarSpeed = 190
 console.log('У машины изменилась скорость', maxCarSpeed)
 maxCarSpeed = 180
