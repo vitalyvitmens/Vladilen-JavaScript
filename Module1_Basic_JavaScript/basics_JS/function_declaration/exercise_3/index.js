@@ -10,7 +10,7 @@ function getDivisorsCount(number) {
           numArr.push(i)
         }
       }
-      return `${numArr.length} (делители - ${numArr.filter((num) => num)})`
+      return `${numArr.length} (делители - ${numArr})`
     }
   } else {
     return NaN
