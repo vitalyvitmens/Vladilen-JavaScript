@@ -18,3 +18,23 @@ function goToNextPage() {}
 function sound() {}
 // Правильное название
 function getAnimalSound() {}
+
+/* Задача: 
+function XO(str) {
+
+}
+
+Проверьте, содержит ли строка одинаковое количество «x» и «o». Метод должен возвращать логическое значение и не учитывать регистр. Строка может содержать любой символ.
+*/
+function XO(str) {
+  count_x = str.match(/[x+X]/g).length
+  count_o = str.match(/[o+O]/g).length
+  if (count_x === count_o) {
+    return true
+  } else {
+    return false
+  }
+}
+
+string = 'XO1110o'
+console.log(XO(string))
