@@ -9,24 +9,32 @@ const peopleWaiting = [
 ]
 
 function giveParcel(array) {
-  const nameShift = array.shift()
-  if (nameShift.includes('на') || nameShift.includes('ия')) {
-    alert(
-      `${nameShift} получила посылку. В очереди осталось ${array.length} человек.`
-    )
+  if (array.length) {
+    const nameShift = array.shift()
+    if (nameShift.includes('на') || nameShift.includes('ия')) {
+      alert(
+        `${nameShift} получила посылку. В очереди осталось ${array.length} человек.`
+      )
+    } else {
+      alert(
+        `${nameShift} получил посылку. В очереди осталось ${array.length} человек.`
+      )
+    }
   } else {
-    alert(
-      `${nameShift} получил посылку. В очереди осталось ${array.length} человек.`
-    )
+    alert('Очереди нет!')
   }
 }
 
 function leaveQueueWithoutParcel(array) {
-  const namePop = array.pop()
-  if (namePop.includes('на') || namePop.includes('ия')) {
-    alert(`${namePop} не получила посылку и ушла из очереди.`)
+  if (array.length) {
+    const namePop = array.pop()
+    if (namePop.includes('на') || namePop.includes('ия')) {
+      alert(`${namePop} не получила посылку и ушла из очереди.`)
+    } else {
+      alert(`${namePop} не получил посылку и ушел из очереди.`)
+    }
   } else {
-    alert(`${namePop} не получил посылку и ушел из очереди.`)
+    alert('Очереди нет!')
   }
 }
 
@@ -37,4 +45,6 @@ giveParcel(peopleWaiting)
 leaveQueueWithoutParcel(peopleWaiting)
 leaveQueueWithoutParcel(peopleWaiting)
 leaveQueueWithoutParcel(peopleWaiting)
+leaveQueueWithoutParcel(peopleWaiting)
+
 leaveQueueWithoutParcel(peopleWaiting)
