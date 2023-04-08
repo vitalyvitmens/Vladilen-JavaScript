@@ -17,3 +17,55 @@ developerNames.forEach((name, index, array) => {
   console.log('index', index)
   console.log('array', array)
 })
+
+// --------------------------------------------------- //
+
+const salariesOfDevelopers2 = [400, 500, 600, 2000, 350]
+
+//! Map (возвращает новый массив, а текущий остается без изменения)
+const updatedSalaries = salariesOfDevelopers2.map(
+  (salary, index, array) => salary * 2
+)
+console.log('updatedSalaries', updatedSalaries)
+
+//! Filter (возвращает новый массив, а текущий остается без изменения)
+// фильтруем массив по зарплатам которые больше 500уе
+const filteredSalaries = salariesOfDevelopers2.filter(
+  (salary, index, array) => salary > 500
+)
+console.log('filteredSalaries', filteredSalaries)
+
+// фильтруем массив по четным индексам кроме нулевого индекса
+const filteredSalaries2 = salariesOfDevelopers2.filter(
+  (salary, index, array) => index % 2 === 0 && index !== 0
+)
+console.log('filteredSalaries2', filteredSalaries2)
+
+//! Find (возвращает первое искомое значение в массиве)
+const searchedSalary = salariesOfDevelopers2.find(
+  (salary, index, array) => salary === 500
+)
+console.log('searchedSalary', searchedSalary)
+
+//! findIndex (возвращает индекс первого искомого значение в массиве)
+const searchedIndex = salariesOfDevelopers2.findIndex(
+  (salary, index, array) => salary === 350
+)
+console.log('searchedIndex', searchedIndex)
+
+const searchedIndex2 = salariesOfDevelopers2.findIndex(
+  (salary, index, array) => salary === 349
+)
+console.log('searchedIndex2', searchedIndex2)
+
+//! some (возвращает true когда хотябы один элемент массива удовлетворяет условию, иначе вернет false)
+const elementExixts = salariesOfDevelopers2.some(
+  (salary, index, array) => salary > 2000
+)
+console.log('elementExixts', elementExixts)
+
+//! every (возвращает true когда все элементы массива удовлетворяют условию, иначе вернет false)
+const allElementExixts = salariesOfDevelopers2.every(
+  (salary, index, array) => salary > 349
+)
+console.log('allElementExixts', allElementExixts)
