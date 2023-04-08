@@ -144,3 +144,38 @@ const people = [
 //   })
 //   .reduce((acc, person) => acc + person.budget, 0)
 // console.log(newPeople)
+
+//! splice (используется для обрезки массивов, изменяя текущий массив)
+const cars = ['BMW', 'Mercedes', 'Lada']
+
+const removedElements = cars.splice(0, 2, 'Audi', 'Bugatti')
+console.log('cars splice:', cars)
+console.log('removedElements splice:', removedElements)
+
+//! slice (используется для обрезки массивов, возвращает новый массив не изменяя текущий массив)
+const agesOfDevelopers = [25, 18, 45, 30]
+const sliceAgesOfDeveloper = agesOfDevelopers.slice(0, 2)
+console.log('sliceAgesOfDeveloper', sliceAgesOfDeveloper)
+console.log('agesOfDevelopers', agesOfDevelopers)
+
+//! indexOf
+const favoriteFood = ['Мороженое', 'Торт', 'Кофе']
+const indexOfFood = favoriteFood.indexOf('Торт')
+console.log('indexOfFood', indexOfFood)
+
+//! includes
+const technologies = ['JavaScript', 'HTML', 'CSS']
+const isTechnologyExists = technologies.includes('JavaScript')
+console.log('isTechnologyExists', isTechnologyExists)
+
+//! split (разделяет строку с помощью разделителя и превращает эту строку в массив)
+const listOfOrders = 'Майка, шорты, кроссовки, рюкзак'
+const listOfOrdersArray = listOfOrders.split(', ')
+console.log(listOfOrdersArray)
+//! join (превращает массив в строку и вставляет перед каждым элементом преданный разделить)
+const ordersString = listOfOrdersArray.join('; ')
+console.log(ordersString)
+
+//! reverse (изменяет текущий массив)
+technologies.reverse()
+console.log(technologies)

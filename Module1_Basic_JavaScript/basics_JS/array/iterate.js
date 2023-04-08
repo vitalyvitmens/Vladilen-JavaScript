@@ -69,3 +69,36 @@ const allElementExixts = salariesOfDevelopers2.every(
   (salary, index, array) => salary > 349
 )
 console.log('allElementExixts', allElementExixts)
+
+//! Reduce
+const sum = salariesOfDevelopers2.reduce(
+  (acc, salary, index, array) => (acc += salary),
+  0
+)
+console.log('sum', sum)
+
+//! sort (< 0, > 0, = 0)
+salariesOfDevelopers2.sort((a, b) => a - b) // сортировка по возрастанию
+console.log('salariesOfDevelopers2 sort(max):', salariesOfDevelopers2)
+
+salariesOfDevelopers2.sort((a, b) => b - a) // сортировка по убыванию
+console.log('salariesOfDevelopers2 sort(min):', salariesOfDevelopers2)
+
+salariesOfDevelopers2.sort() // значения сортируются как строки
+console.log('salariesOfDevelopers2: sort(string)', salariesOfDevelopers2)
+
+const developerNames2 = ['Maxim', 'Igor', 'Nastya', 'Irina']
+
+developerNames2.sort() // значения сортируются как строки по возрастанию
+console.log('developerNames2 sort(string max):', developerNames2)
+
+developerNames2.sort((a, b) => {
+  if (a < b) {
+    return 1
+  }
+  if (a > b) {
+    return -1
+  }
+  return 0
+}) // значения сортируются как строки по убыванию
+console.log('developerNames2 sort(string min):', developerNames2)
