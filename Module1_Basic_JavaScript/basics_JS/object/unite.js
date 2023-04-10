@@ -40,15 +40,15 @@ const developer4 = Object.assign(developerInfo, developerExtraInfo) // перв�
 console.log(developer4)
 
 const car4 = {
-  name: "Toyota Corolla",
-  year: 2017
-};
+  name: 'Toyota Corolla',
+  year: 2017,
+}
 
 const carOwner2 = {
-  ownerName: "Ivan Ivanov",
-  ownerAge: 27
-};
+  ownerName: 'Ivan Ivanov',
+  ownerAge: 27,
+}
 
-Object.assign(car4, carOwner2);
+Object.assign(car4, carOwner2)
 
-console.log(car4);
+console.log(car4)

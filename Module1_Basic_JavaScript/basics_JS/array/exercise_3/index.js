@@ -1,10 +1,11 @@
 const coffees = ['Latte', 'Cappuccino', 'Americano']
 
-const coffeeName = prompt('Поиск кофе по названию:').trim().toLowerCase()
-const newCoffeesLowerCase = coffees.map((coffee) => coffee.toLowerCase())
+const coffeeName = prompt('Поиск кофе по названию:').trim()
 
-if (newCoffeesLowerCase.includes(coffeeName)) {
-  const find = coffees.findIndex((coffee) => coffee.toLowerCase() == coffeeName)
+const find = coffees.findIndex(
+  (coffee) => coffee.toLowerCase() == coffeeName.toLowerCase()
+)
+if (find >= 0) {
   alert(
     `Держите ваш любимый кофе ${coffees[find]}. Он №${
       find + 1
