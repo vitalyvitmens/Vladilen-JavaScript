@@ -1,11 +1,12 @@
 function giveJobToStudent(student, jobName) {
-  student.job = jobName
-  alert(
-    `Поздравляем! У студента ${student?.fullName}а появилась новая работа! Теперь он ${jobName}`
-  )
   const newStudent = {
     ...student,
   }
+
+  newStudent.job = jobName
+  alert(
+    `Поздравляем! У студента ${newStudent?.fullName}а появилась новая работа! Теперь он ${jobName}`
+  )
   return newStudent
 }
 
