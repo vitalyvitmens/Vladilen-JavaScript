@@ -5,24 +5,22 @@ class Dictionary {
   }
 
   add(word, description) {
-    const objWord = (this.words[word] = {})
-    if (!(objWord.hasOwnProperty(word) === word)) {
-      objWord['word'] = word
-      objWord['description'] = description
+    if (!this.words.hasOwnProperty(word)) {
+      this.words[word] = { word, description }
     }
   }
 
-  remove(key) {
-    delete this.words[key]
+  remove(word) {
+    delete this.words[word]
   }
 
-  get(key) {
-    return this.words[key]
+  get(word) {
+    return this.words[word]
   }
 
   showAllWords() {
-    for (let key in this.words) {
-      console.log(`${Object.values(this.words[key])}`)
+    for (let key of Object.keys(this.words)) {
+      console.log(`${key} - ${this.words[key].description}`)
     }
   }
 }
@@ -34,8 +32,11 @@ dictionary.add(
   'Человек, который создает новые сервисы и сайты или поддерживает и дополняет существующие'
 )
 dictionary.add('JavaScript', '77')
-// dictionary.remove('JavaScript')
-console.log(dictionary.get('Веб-разработчик'))
+dictionary.add('JavaScript', '78')
+dictionary.add('JavaScript', '79')
+dictionary.add('Dart', 'язык программирования для фрэймворка Flutter')
 dictionary.showAllWords()
+dictionary.remove('Dart')
 
+console.log(dictionary.get('Веб-разработчик'))
 console.log(dictionary)

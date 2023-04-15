@@ -15,17 +15,10 @@ const bird = {
 }
 
 function makeDomestic(isDomestic) {
-  if (isDomestic) {
-    this.isDomestic = isDomestic
-  } else {
-    this.isDomestic = isDomestic
-  }
-  console.log(this)
-  return console.log(
-    `${this.type} по имени ${this.name} говорит ${this.makeSound()}`
-  )
+  console.log(`${this.type} по имени ${this.name} говорит ${this.makeSound()}`)
+  return Object.assign({ isDomestic }, this)
 }
 
-makeDomestic.bind(dog, true)()
-makeDomestic.call(bird, false)
-makeDomestic.apply(bird, [false])
+console.log(makeDomestic.bind(dog, true)())
+console.log(makeDomestic.call(bird, false))
+console.log(makeDomestic.apply(bird, [false]))

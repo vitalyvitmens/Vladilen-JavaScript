@@ -42,10 +42,56 @@ console.log('militaryPlane', militaryPlane)
 // instanceof
 console.log(militaryPlane instanceof MilitaryPlane)
 console.log(militaryPlane instanceof Plane)
-class Dog{}
+class Dog {}
 console.log(militaryPlane instanceof Dog)
 
 //! 2. Инкапсуляция
+// public
+// private #
+class Developer {
+  #salary // инициализация private поля
+  constructor(name, programmingLanguage) {
+    this.name = name
+    this.programmingLanguage = programmingLanguage
+    this.#salary = 3000
+  }
+
+  get devSalary() {
+    return this.#salary
+  }
+
+  set setSalary(salary) {
+    return this.#salary = salary
+  }
+
+  startCoding() {
+    console.log(this.#salary)
+    this.#printProgrammingLanguage()
+    console.log(`${this.name} начинает писать код!`)
+  }
+
+  #printProgrammingLanguage() {
+    console.log(`Язык программирования: ${this.programmingLanguage}`)
+  }
+}
+
+const developer = new Developer('Maxim', 'JavaScript')
+console.log(developer)
+console.log(developer.name) // public поля
+console.log(developer.programmingLanguage) // public поля
+developer.startCoding() // public методы
+console.log('get devSalary:', developer.devSalary)
+developer.setSalary = 5000
+console.log('get devSalary:', developer.devSalary)
+
+class JuniorDeveloper extends Developer {
+  constructor(name, programmingLanguage) {
+    super(name, programmingLanguage)
+  }
+}
+
+const juniorDeveloper = new JuniorDeveloper('Egor', 'HTML')
+juniorDeveloper.startCoding()
 
 //! 3. Полиморфизм
 
