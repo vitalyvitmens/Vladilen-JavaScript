@@ -33,6 +33,7 @@ const firstNavigationButton3 = document.querySelector(
 firstNavigationButton3.classList.add('main-navigation__button-item_selected')
 firstNavigationButton3.classList.remove('main-navigation__button-item_selected')
 firstNavigationButton3.classList.toggle('main-navigation__button-item_selected') // если класс в кавычках есть, то удалит, если нету - то добавит данный класс
+firstNavigationButton3.classList.toggle('main-navigation__button-item_selected') // если класс в кавычках есть, то удалит, если нету - то добавит данный класс
 
 const createTaskInput = document.querySelector('.create-task-block__input')
 console.log(createTaskInput.hasAttribute('type')) // true - hasAttribute() проверяет существует ли атрибут
