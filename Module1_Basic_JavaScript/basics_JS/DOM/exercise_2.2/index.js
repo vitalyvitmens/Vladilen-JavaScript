@@ -60,10 +60,6 @@ const createTaskItem = (taskId, taskText, taskCompleted) => {
 }
 
 const createError = (message) => {
-  const errorHTML = document.querySelector(`.error-message-block`)
-  if (errorHTML) {
-    errorHTML.remove()
-  }
   const error = document.createElement(`span`)
   error.textContent = message
   error.className = `error-message-block`
@@ -87,11 +83,16 @@ createForm.addEventListener('submit', (event) => {
   event.preventDefault()
   const textValue = event.target.taskName.value
 
+  const errorHTML = document.querySelector(`.error-message-block`)
+  if (errorHTML) {
+    errorHTML.remove()
+  }
+
   if (textValue === ``) {
     event.target.append(createError(`Название задачи не должно быть пустым`))
   } else if (
     tasks.some(
-      (task) => task.text.toLocaleLowerCase() === textValue.toLocaleLowerCase()
+      (task) => task.text.toLowerCase() === textValue.toLowerCase().trim()
     )
   ) {
     event.target.append(createError(`Задача с таким названием уже существует`))
