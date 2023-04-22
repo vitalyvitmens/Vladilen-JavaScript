@@ -12,26 +12,22 @@ const createUserElement = (text) => {
 
 const dataContainer = document.querySelector(`#data-container`)
 
-const getAllUsers = () => {
-  const result = fetch(USERS_URL, {
-    method: `GET`,
-  })
-
-  result
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Ошибка запроса`)
-      }
-      return response.json()
+const getUsersByIds = (ids) => {
+  const requests = ids.map((id) => fetch(`${USERS_URL}/${id}`))
+  Promise.all(requests)
+    .then((responses) => {
+      const dataResults = responses.map((response) => response.json())
+      return Promise.all(dataResults)
     })
     .then((users) => {
+      console.log(`users`, users)
       users.forEach((user) => {
         const userHTML = createUserElement(user.name)
         dataContainer.append(userHTML)
       })
     })
     .catch((error) => {
-      console.log(`error`, error)
+      console.log(error)
     })
     .finally(() => {
       const loader = document.getElementById('loader')
@@ -39,4 +35,4 @@ const getAllUsers = () => {
     })
 }
 
-getAllUsers()
+getUsersByIds([5, 6, 2, 1])
