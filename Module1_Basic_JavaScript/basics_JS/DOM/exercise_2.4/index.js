@@ -164,3 +164,28 @@ confirmButton.onclick = (e) => {
   render()
   toggleOverlay()
 }
+
+let dark = false
+window.addEventListener(`keydown`, (e) => {
+  if (e.code === `Tab`) {
+    e.preventDefault()
+    dark = !dark
+    if (dark) {
+      document.body.style.background = `#24292E`
+      document
+        .querySelectorAll(`.task-item`)
+        .forEach((task) => (task.style.color = `#fff`))
+      document
+        .querySelectorAll(`button`)
+        .forEach((task) => (task.style.border = `1px solid #ffffff`))
+    } else {
+      document.body.style.background = `initial`
+      document
+        .querySelectorAll(`.task-item`)
+        .forEach((task) => (task.style.color = `initial`))
+      document
+        .querySelectorAll(`button`)
+        .forEach((task) => (task.style.border = `none`))
+    }
+  }
+})
