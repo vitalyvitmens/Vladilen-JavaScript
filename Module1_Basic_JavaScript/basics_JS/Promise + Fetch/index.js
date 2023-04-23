@@ -1,58 +1,58 @@
-//! Синхронный код
-const numberOfElements = 3
-console.log(`Начало цикла`)
-for (let i = 0; i < numberOfElements; i += 1) {
-  console.log(`i:`, i)
-}
-console.log(`Конец цикла`)
+// //! Синхронный код
+// const numberOfElements = 3
+// console.log(`Начало цикла`)
+// for (let i = 0; i < numberOfElements; i += 1) {
+//   console.log(`i:`, i)
+// }
+// console.log(`Конец цикла`)
 
-//! Асинхронный код
-const developer = {
-  name: `Egor`,
-  isJSDev: true,
-}
+// //! Асинхронный код
+// const developer = {
+//   name: `Egor`,
+//   isJSDev: true,
+// }
 
-setTimeout(() => {
-  console.log(`setTimeout() After 3 sec`)
-}, 3000)
+// setTimeout(() => {
+//   console.log(`setTimeout() After 3 sec`)
+// }, 3000)
 
-console.log(developer)
+// console.log(developer)
 
-let count = 0
-setInterval(() => {
-  count += 1
-  if (count > 3 && count <= 6) {
-    console.log(`setInterval() every 1 sec`)
-  }
-}, 1000)
+// let count = 0
+// setInterval(() => {
+//   count += 1
+//   if (count > 3 && count <= 6) {
+//     console.log(`setInterval() every 1 sec`)
+//   }
+// }, 1000)
 
-//! 3 статуса promise:
-// 1). pending (находится в ожидании)
-// 2). fulfilled (удачное выполнение)
-// 3). rejected (выполнение с ошибкой)
-const promise = new Promise((resolve, reject) => {
-  if (developer.isJSDev) {
-    setTimeout(() => {
-      resolve(`${developer.name} является JS разработчиком`)
-    }, 3000)
-  } else {
-    reject(`${developer.name} НЕ является JS разработчиком`)
-  }
-})
+// //! 3 статуса promise:
+// // 1). pending (находится в ожидании)
+// // 2). fulfilled (удачное выполнение)
+// // 3). rejected (выполнение с ошибкой)
+// const promise = new Promise((resolve, reject) => {
+//   if (developer.isJSDev) {
+//     setTimeout(() => {
+//       resolve(`${developer.name} является JS разработчиком`)
+//     }, 3000)
+//   } else {
+//     reject(`${developer.name} НЕ является JS разработчиком`)
+//   }
+// })
 
-console.log(promise)
+// console.log(promise)
 
-//! then, catch, finally
-promise
-  .then((successMessage) => {
-    console.log(`successMessage:`, successMessage)
-  })
-  .catch((error) => {
-    console.log(`error:`, error)
-  })
-  .finally(() => {
-    console.log(`finally`)
-  })
+// //! then, catch, finally
+// promise
+//   .then((successMessage) => {
+//     console.log(`successMessage:`, successMessage)
+//   })
+//   .catch((error) => {
+//     console.log(`error:`, error)
+//   })
+//   .finally(() => {
+//     console.log(`finally`)
+//   })
 
 //! fetch - специальная функция для получения данных по URL
 // fetch(url)
