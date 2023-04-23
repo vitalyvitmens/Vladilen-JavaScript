@@ -25,6 +25,7 @@ const renderAlbums = async () => {
     const err = document.createElement(`h2`)
     err.textContent = `Произошла ошибка в получении данных об альбомах...`
     dataContainer.append(err)
+    console.log(error)
   } finally {
     const loader = document.getElementById('loader')
     loader.style.display = 'none'
