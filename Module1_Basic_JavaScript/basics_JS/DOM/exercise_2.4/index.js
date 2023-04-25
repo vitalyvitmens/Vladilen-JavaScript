@@ -97,7 +97,7 @@ createForm.addEventListener('submit', (event) => {
   ) {
     event.target.append(createError(`Задача с таким названием уже существует`))
   } else {
-    tasks.push({ id: Date.now(), completed: false, text: textValue })
+    tasks.push({ id: String(Date.now()), completed: false, text: textValue })
     render()
   }
 })
@@ -156,7 +156,7 @@ taskListHTML.addEventListener(`click`, (e) => {
 })
 
 cancelButton.onclick = toggleOverlay
-confirmButton.onclick = (e) => {
+confirmButton.onclick = () => {
   const taskIdx = tasks.findIndex((task) => task.id === taskId)
   if (taskIdx !== -1) {
     tasks.splice(taskIdx, 1)

@@ -76,6 +76,6 @@ createForm.addEventListener('submit', (event) => {
   event.preventDefault()
   const textValue = event.target.taskName.value
 
-  tasks.push({ id: Date.now(), completed: false, text: textValue })
+  tasks.push({ id: String(Date.now()), completed: false, text: textValue })
   render()
 })
