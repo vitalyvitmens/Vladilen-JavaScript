@@ -17,4 +17,4 @@ const createNewPost = async () => {
     isLoading = false
   }
 }
-createNewPost()
+renderPost()

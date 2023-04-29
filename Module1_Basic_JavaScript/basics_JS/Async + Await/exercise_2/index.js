@@ -56,13 +56,13 @@ getTodosByIds2([43, 21, 55, 100, 10])
 
 const getTodosByIds3 = async (ids) => {
   try {
-    const requests = ids.map((id) => fetch(`${TODOS_URL}/${id}`));
-    const responses = await Promise.all(requests);
-    const allTasks = await Promise.all(responses.map((data) => data.json()));
-    console.log("allTasks", allTasks);
+    const requests = ids.map((id) => fetch(`${TODOS_URL}/${id}`))
+    const responses = await Promise.all(requests)
+    const allTasks = await Promise.all(responses.map((data) => data.json()))
+    console.log('allTasks', allTasks)
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
-};
+}
 
-getTodosByIds3([43, 21, 55, 100, 10]);
+renderPost([43, 21, 55, 100, 10])
