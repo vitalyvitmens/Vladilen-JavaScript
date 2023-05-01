@@ -18,4 +18,3 @@
 14. git rm -rf --cached .
 15. git add .
 16. git commit -m "fix gitignore"
-хуйню пишу в надежде убрать
