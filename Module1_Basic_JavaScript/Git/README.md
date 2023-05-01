@@ -11,8 +11,10 @@
 - [rep_link] = git remote -v = origin = https://github.com/vitalyvitmens/Vladilen-JavaScript
 - [branch_name] = git branch = main
 - gip push origin main
-
-# Откатить commit например если забыл создать файл .gitignore и сдуру запушил лишнего
-11. git rm -rf --cached .
-12. git add .
-13. git commit -m "fix gitignore"
+11. git reset [files] - что бы убрать со stage определенный файл 
+12. git diff - посмотреть изменения
+13. git reset --hard - уберет все изменения и вернет то что было до последнего push
+### Откатить commit например если забыл создать файл .gitignore и сдуру запушил лишнего
+14. git rm -rf --cached .
+15. git add .
+16. git commit -m "fix gitignore"
