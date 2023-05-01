@@ -33,3 +33,27 @@ const renderPost = async (...postId) => {
 
 renderPost(1)
 // https://jsonplaceholder.typicode.com/comments?postId=1
+
+const arr = [1, 2, 2, 2, 3, 3, 9, 5, 5, 77]
+
+console.log(arr.filter((i) => arr.indexOf(i) === arr.lastIndexOf(i)))
+console.log(arr.filter((i) => arr.indexOf(i)))
+console.log(arr.filter((i) => arr.lastIndexOf(i)))
+
+console.log([
+  ...new Set(arr.filter((i) => arr.indexOf(i) !== arr.lastIndexOf(i))),
+])
+
+console.log(
+  ...[...new Set(arr.filter((i) => arr.indexOf(i) !== arr.lastIndexOf(i)))]
+)
+
+console.log(arr.filter((i) => i === 1))
+
+console.log(arr.reduce((acc, i) => (acc += i)))
+
+acc = 0
+arr.forEach((i) => (acc += i ** 2))
+console.log(acc)
+
+console.log(arr.reverse())
