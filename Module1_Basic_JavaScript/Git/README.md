@@ -1,3 +1,15 @@
-1. git status
-2. git add [files] || git add . - добавляет файлы в stage
-3. git commit -m "comment"
+1. git status - глянуть статус
+2. git add [files] || git add . - добавляет файлы в stage (этап)
+3. git commit -m "comment" - закомитить файлы добавленные в stage (этап)
+4. git log - глянуть подробную инфу (логи) о наших коммитах
+5. git log --oneline - глянуть краткие логи коммитов (id коммита + название коммита)
+6. git config user.name - глянуть автора
+7. git config user.email - глянуть почту автора
+8. git remote -v - узнать есть ли удаленный репозиторий
+9. git remote origin url - привязать локальный гит к удаленному (github) гиту
+10. git push [rep_link] [branch_name] || git push
+
+# Откатить commit например если забыл создать файл .gitignore и сдуру запушил лишнего
+11. git rm -rf --cached .
+12. git add .
+13. git commit -m "fix gitignore"
