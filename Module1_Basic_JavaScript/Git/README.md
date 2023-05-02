@@ -26,3 +26,4 @@
 4. git branch feature/about-company - создаём ветку about-company страница о компании
 5. git checkout develop - переход на ветку develop
 6. git branch - проверяем сколько у нас веток и какие * зеленый цвет - на какой ветке находимся
+7. git push [rep_link] [branch_name] (git push origin develop) - запушить коммит с другой ветки. Чтобы глянуть [rep_link] [branch_name] используй команду git remote -v
