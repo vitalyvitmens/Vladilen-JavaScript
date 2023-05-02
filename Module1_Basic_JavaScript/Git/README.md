@@ -18,3 +18,11 @@
 14. git rm -rf --cached .
 15. git add .
 16. git commit -m "fix gitignore"
+
+#### Создание веток
+1. git branch - проверяем сколько у нас веток и какие
+2. git branch develop - создаём ветку develop для разработки
+3. git branch feature/main-page - создаём ветку main-page для разработки главной страницы
+4. git branch feature/about-company - создаём ветку about-company страница о компании
+5. git checkout develop - переход на ветку develop
+6. git branch - проверяем сколько у нас веток и какие * зеленый цвет - на какой ветке находимся
