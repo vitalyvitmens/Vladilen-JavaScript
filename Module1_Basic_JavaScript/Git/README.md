@@ -39,3 +39,5 @@
 6. git checkout main - возвращаемся на ветку main
 7. git merge feature/main-page - указываем название ветки (feature/main-page) чей код мы хотим переместить в нашу главную ветку main, после этого изменения из ветки feature/main-page отобразятся на главной ветке main
 8. git push origin main - пушим изменения на удаленный репозиторий (в нашем случае GitHub)
+9. git branch -d feature/main-page - удаляем локально ветку feature/main-page
+10. Так же необходимо удалить ветку в удаленном репозитории (в нашем случае GitHub)
