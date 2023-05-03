@@ -35,4 +35,7 @@
 2. git branch test - создаём ветку develop для разработки
 3. git branch -d test - удалить ветку test
 4. git branch feature/main-page - создаем ветку для разработки главной страницы
-5. git checkout feature/main-page - переходим на ветку для разработки главной страницы
+5. git checkout feature/main-page - переходим на ветку для разработки главной страницы и создаем изменения
+6. git checkout main - возвращаемся на ветку main
+7. git merge feature/main-page - указываем название ветки (feature/main-page) чей код мы хотим переместить в нашу главную ветку main, после этого изменения из ветки feature/main-page отобразятся на главной ветке main
+8. git push origin main - пушим изменения на удаленный репозиторий (в нашем случае GitHub)
