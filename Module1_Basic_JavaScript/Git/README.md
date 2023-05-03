@@ -45,7 +45,22 @@
 
 #### Решение конфликтов при слиянии веток
 1. git branch - проверяем сколько у нас веток и какие
-2. git checkout feature/user-access - создаем новую ветку feature/user-access
+2. git branch feature/user-access - создаем новую ветку feature/user-access
 3. git branch - проверяем сколько у нас веток и какие
-4. git checkout feature/user-access - переходим на ветку feature/user-access
-5. 
+4. git checkout feature/user-access - переходим на ветку feature/user-access и создаем там новую фичу и коммитим изменения:
+- git add .
+- git commit -m "first commit in branch feature/user-access" 
+5. git checkout main - переходим на главную ветку main и создаем там новую фичу (как будто два разработчика одновременно написали похожий код в тех же строках но в разных ветках) и коммитим изменения:
+- git add .
+- git commit -m "add data in branch main" 
+6. git marge feature/user-access - пытаемся смерджить (слить) ветку feature/user-access в main, но появляются конфликты, фиксим их:
+- Accept Current Change - принять изменения из ветки main
+- Accept Incoming Change - принять изменения из ветки feature/user-access
+- Accept Both Changes - принять изменения из обоих веток
+7. Коммитим изменения:
+- git status
+- git add .
+- git commit -m "add data in branch main" 
+- git push origin main - пушим изменения на удаленный репозиторий (в нашем случае GitHub)
+8. git branch -d feature/user-access - удаляем локально ветку feature/user-access
+9. git branch - проверяем сколько у нас веток и какие
