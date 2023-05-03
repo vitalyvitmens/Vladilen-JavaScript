@@ -36,8 +36,9 @@
 3. git branch -d test - удалить ветку test
 4. git branch feature/main-page - создаем ветку для разработки главной страницы
 5. git checkout feature/main-page - переходим на ветку для разработки главной страницы и создаем изменения
-6. git checkout main - возвращаемся на ветку main
+6. git checkout main - возвращаемся на ветку main !!! обязательно !!!
 7. git merge feature/main-page - указываем название ветки (feature/main-page) чей код мы хотим переместить в нашу главную ветку main, после этого изменения из ветки feature/main-page отобразятся на главной ветке main
 8. git push origin main - пушим изменения на удаленный репозиторий (в нашем случае GitHub)
 9. git branch -d feature/main-page - удаляем локально ветку feature/main-page
-10. Так же необходимо удалить ветку в удаленном репозитории (в нашем случае GitHub)
+10. Так же необходимо удалить ветку в удаленном репозитории (в нашем случае GitHub). Для этого переходим в секцию branches и в блоке Your branches напротив feature/main-page нажимаем кнопку delete, так же есть возможность ее восстановить если нажать кнопку Restore
+11. git branch - проверяем сколько у нас веток и какие
