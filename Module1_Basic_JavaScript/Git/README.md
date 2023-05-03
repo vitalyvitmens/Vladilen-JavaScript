@@ -34,3 +34,5 @@
 1. git branch - проверяем сколько у нас веток и какие
 2. git branch test - создаём ветку develop для разработки
 3. git branch -d test - удалить ветку test
+4. git branch feature/main-page - создаем ветку для разработки главной страницы
+5. git checkout feature/main-page - переходим на ветку для разработки главной страницы
