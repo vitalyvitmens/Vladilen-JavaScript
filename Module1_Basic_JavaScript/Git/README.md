@@ -42,3 +42,10 @@
 9. git branch -d feature/main-page - удаляем локально ветку feature/main-page
 10. Так же необходимо удалить ветку в удаленном репозитории (в нашем случае GitHub). Для этого переходим в секцию branches и в блоке Your branches напротив feature/main-page нажимаем кнопку delete, так же есть возможность ее восстановить если нажать кнопку Restore
 11. git branch - проверяем сколько у нас веток и какие
+
+#### Решение конфликтов при слиянии веток
+1. git branch - проверяем сколько у нас веток и какие
+2. git checkout feature/user-access - создаем новую ветку feature/user-access
+3. git branch - проверяем сколько у нас веток и какие
+4. git checkout feature/user-access - переходим на ветку feature/user-access
+5. 
