@@ -27,6 +27,7 @@
 5. git checkout develop - переход на ветку develop
 6. git branch - проверяем сколько у нас веток и какие * зеленый цвет - на какой ветке находимся
 7. git push [rep_link] [branch_name] (git push origin develop) - запушить коммит с другой ветки. Чтобы глянуть [rep_link] [branch_name] используй команду git remote -v
+8. git checkout -b develop origin/develop - pull ветки develop с удаленного репозитория и переход на нее
 
 #### Слияние веток при помощи действия pull request - делается через GitHub https://lk.result.school/pl/teach/control/lesson/view?id=268066813&editMode=0
 
