@@ -1,23 +1,30 @@
-1. git status - глянуть статус
-2. git add [files] || git add . - добавляет файлы в stage (этап = промежуточная область)
+1. git status - глянуть статус, показывает что у нас сейчас происходит в рабочем дереве гита
+2. git add [files] || git add [folder] || git add . - добавляет файлы в stage (этап = промежуточная область)
 3. git commit -m "comment" - закомитить файлы добавленные в stage (этап = промежуточная область)
-4. git log - глянуть подробную инфу (логи) о наших коммитах
-5. git log --oneline - глянуть краткие логи коммитов (id коммита + название коммита)
-6. git config user.name - глянуть автора
-7. git config user.email - глянуть почту автора
-8. git remote -v - узнать есть ли удаленный репозиторий
-9. git remote origin url - привязать локальный гит к удаленному (github) гиту
-10. git push [rep_link] [branch_name] || git push
+4. git commit -m "comment" -a || git commit -m "comment" --all - закоммитить всё что у нас есть
+5. git log - глянуть подробную инфу (логи) о наших коммитах, на каком комите находимся, где у нас находится main ветка. Клавиша q - выйти из git log
+6. git log --oneline - глянуть краткие логи коммитов (id коммита + название коммита)
+7. git config user.name - глянуть автора
+8. git config user.email - глянуть почту автора
+9. git remote -v - узнать есть ли удаленный репозиторий
+10. git remote origin url - привязать локальный гит к удаленному (github) гиту
+11. git push [rep_link] [branch_name] || git push
 - [rep_link] = git remote -v = origin = https://github.com/vitalyvitmens/Vladilen-JavaScript
 - [branch_name] = git branch = main
 - gip push origin main
-11. git reset [files] - что бы убрать со stage определенный файл 
-12. git diff - посмотреть изменения
-13. git reset --hard - уберет все изменения и вернет то что было до последнего push
+12. git reset [files] - что бы убрать со stage определенный файл 
+13. git diff - посмотреть изменения
+14. git reset --hard - уберет все изменения и вернет то что было до последнего push
+15. git restore [files] - уберет все изменения в файле и вернет то что было до последнего коммита в этой ветке
+16. git restore --staged [file] - выбросит файл из коммита
+
+### Правильное оформление коммитов https://www.conventionalcommits.org/en/v1.0.0/
+
+
 ### Откатить commit например если забыл создать файл .gitignore и сдуру запушил лишнего
-14. git rm -rf --cached .
-15. git add .
-16. git commit -m "fix gitignore"
+1. git rm -rf --cached .
+2. git add .
+3. git commit -m "fix gitignore"
 
 #### Создание веток
 1. git branch - проверяем сколько у нас веток и какие
