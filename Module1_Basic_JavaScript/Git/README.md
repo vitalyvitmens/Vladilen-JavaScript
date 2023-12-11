@@ -1,4 +1,4 @@
-1. git status - глянуть статус, показывает что у нас сейчас происходит в рабочем дереве гита
+1. git status - глянуть статус, показывает что у нас сейчас происходит в рабочем дереве гита, дает более оперативную инфу чем VS-code
 2. git add [files] || git add [folder] || git add . - добавляет файлы в stage (этап = промежуточная область)
 3. git commit -m "comment" - закомитить файлы добавленные в stage (этап = промежуточная область)
 4. git commit -m "comment" -a || git commit -m "comment" --all - закоммитить всё что у нас есть
@@ -35,6 +35,9 @@ git config --global core.editor "code --wait -n"
 1. git rm -rf --cached .
 2. git add .
 3. git commit -m "fix gitignore"
+
+### Что бы git перестал отслеживтаь какой то файл
+1. git rm --cached [files]
 
 #### Создание веток
 1. git branch - проверяем сколько у нас веток и какие
