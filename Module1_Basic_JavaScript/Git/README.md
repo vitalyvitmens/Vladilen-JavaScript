@@ -19,7 +19,17 @@
 16. git restore --staged [file] - выбросит файл из коммита
 
 ### Правильное оформление коммитов https://www.conventionalcommits.org/en/v1.0.0/
+1. В терминале открываем терминал powershell || bash || zsh и пишем команду: git commit -a
+2. В открывшемся новом окне редактора кода пишем коммит состоящий из header body footer:
 
+fix(Module1_Basic_JavaScript\Git\README): изменяет текст
+
+В мидл курсе вскрылись новые способности Git
+
+https://www.conventionalcommits.org/en/v1.0.0/
+
+3. Что бы редактор кода открывался в новом окне после команды git commit -a, настраиваем редактор запуском команды в терминале:
+git config --global core.editor "code --wait -n"
 
 ### Откатить commit например если забыл создать файл .gitignore и сдуру запушил лишнего
 1. git rm -rf --cached .
