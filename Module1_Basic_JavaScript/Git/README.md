@@ -290,6 +290,18 @@ https://docs.github.com/ru/authentication/connecting-to-github-with-ssh/testing-
 19. Далее можем закрыть issue для этого нажимаем кнопку Close issue
 
 ### Что такое fork, когда он нужен и как с ним работать
+https://lk.result.school/pl/teach/control/lesson/view?id=285571404
+1. Github Нажимаем кнопку Fork (Fork - копия чужого репозитория) выбираем куда форкаем, называем например fork-example => выбираем какую ветку копируем обычно master | main => Create Fork 
+2. Копируем ссылку уже своего форкнутого репозитория в Code по SSH
+3. git clone git@github.com:vitalyvitmens/mdl-blog.git - клонируем у себя в терминале
+4. в vs-code вносим изменения, например добавляем файл .DS_Store в .gitignore + обязательно его удалить в терминале команда git rm .DS_Store теперь этот файл не отслеживается гитом
+5. git commit -m "fix: добавляет игнорирование DS_Store"
+6. git push - пушим в свою копию репозитория
+7. в Github увидим сообщение что наша ветка впереди на один коммит по отношению к той ветке с которой форкали
+8. нажимаем кнопку contribute => Open pull request => описываем что произошло и указываем откуда куда вливаем (см стрелочку) => Create pull request
+
+### GitHub Pages - бесплатный хостинг для вашего frontend-проекта
+https://lk.result.school/pl/teach/control/lesson/view?id=285571405
 
 
 ### Передача изменений по элетронной почте при помощи PATCH (полезно когда репозиторий закрытый, но нужно поделиться изменениями с другими разработчиками)
