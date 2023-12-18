@@ -27,6 +27,7 @@ fix(Module1_Basic_JavaScript\Git\README): изменяет текст
 В мидл курсе вскрылись новые способности Git
 
 https://www.conventionalcommits.org/en/v1.0.0/
+docs: | chore: | feat: | fix: 
 
 3. Что бы редактор кода открывался в новом окне после команды git commit -a, настраиваем редактор запуском команды в терминале:
 git config --global core.editor "code --wait -n"
@@ -244,7 +245,25 @@ https://docs.github.com/ru/authentication/connecting-to-github-with-ssh/generati
 https://docs.github.com/ru/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection для проверки SSH подключения открываем ссылку и вставляем команду в терминал и проверяем
 11. ssh -T git@github.com - проверяем SSH подключение, если все гуд Github назовет Вас по имени (Hi vitalyvitmens! You've successfully authenticated, but GitHub does not provide shell access.)
 
-### Как создать репозиторий и присоединить его к проекту
+### Как создать репозиторий и присоединить его к проекту по SSH
+1. git init - инициализируем репозиторий
+2. Для первого коммита нам нужно сделать мимнимум изменений, что бы если что было проще откатывать изменения и чтото менять, это будет файл например с лицензией LICENSE. На панели с лева в Source Control нажимаем на + в файле LICENSE (он добавится в Staged Changes) и коммитим
+3. git commit -m "chore: initial commit" - коммитим файл LICENSE
+4. Если какие то файлы нужно добавить в .gitignore, то создаем .gitignore и добавляем в него эти файлы
+5. Коммитим все остальное: нажимаем на + в строке Changes и создаем коммит: feat: добавляет шаблон. Далее нажимаем на кнопку Commit
+6. Теперь нам нужно этот код отправить на Github, заходим на Github, авторизуемся и создаем новый репозиторий кнопка New или слева от аватара нажимаем +. Далее в Create a new repository называем например: mdl-blog выбираем нужные галочки и настройки, нажимаем Create repository
+7. Выбираем SSH напротив него будет URL например: git@github.com:vitalyvitmens/mdl-blog.git
+8. Из строки …or push an existing repository from the command line копируем первую строку: git remote add origin git@github.com:vitalyvitmens/mdl-blog.git и выполняем в своем терминале
+9. git push - в терминале своем выполняем данную команду, в случае ошибки выполнить: git push --set-upstream origin master, что бы Git знал что origin и master это одна и та же ветка
+10. Видим в терминале что ветка создалась: * [new branch]      master -> master
+11. Обновляем страницу Github и видим удачное добавление нашего проекта
+12. Теперь тоже самое делаем на Gitlab - заходим, авторизуемся => нажимаем кнопку New project или + слева от аватара => Create blank project => выбираем имя для проекта например: mdl-blog => Public => убираем галочку Initialize repository with a README => нажимаем кнопку Create project
+13. Копируем третью строку из Push an existing folder: git remote add origin git@gitlab.com:vitalyvitmens/mdl-blog.git, вставляем в свой терминал и меняем в ней название origin на origin-gl и нажимаем Enter: git remote add origin-gl git@gitlab.com:vitalyvitmens/mdl-blog.git
+14. git push origin-gl - пушим на Gitlab, в случае ошибки, выбираем yes, в случае повторной ошибки повторно пушим: git push origin-gl
+15. Видим в терминале что ветка создалась: * [new branch]      master -> master
+16. Обновляем страницу Gitlab и видим удачное добавление нашего проекта
+
+### Что такое issues, как их создавать и как с ними работать
 
 ### Передача изменений по элетронной почте при помощи PATCH (полезно когда репозиторий закрытый, но нужно поделиться изменениями с другими разработчиками)
 1. git diff [hash_commit] > my_patch.patch - данная команда находит коммит по хэшу коммита и сохраняет его в виде файла my_patch.patch в нужную дирректорию, затем файл можно отослать по эл почте. Что бы посмотреть хэш коммита используй git log. Название файла патча может быть любым, но рекомендуется указывать расширение .patch
