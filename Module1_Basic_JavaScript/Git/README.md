@@ -302,7 +302,19 @@ https://lk.result.school/pl/teach/control/lesson/view?id=285571404
 
 ### GitHub Pages - бесплатный хостинг для вашего frontend-проекта
 https://lk.result.school/pl/teach/control/lesson/view?id=285571405
+1. Если Ваш код статический и его не нужно собирать:
+Github => project => settings => pages => Source (Deploy from a branch) => Branch (master) (/(root)) => Save => Code => Actions (выяснить собралась страница и выложилась или нет) 
+2. Если Ваш код нужно собирать (2 пути: Github Actions | собирать код локально и выкладывать с помощью готового пакета):
+  - на локальном компьютере в проекте создаем директорию dist и перемещаем все наши файлы и папки | с помощью скрипта npm run build собрали dist
+  - npm init -y
+  - npm install gh-pages --save-dev - устанавливаем пакет gh-pages
+  - в файл package.json в "scripts": добавляем поле: "deploy": "gh-pages -d dist" который запускает gh-pages и говорит, что нужно деплоить папку dist
+  - npx gh-pages --help - чтобы посмотреть какие опции есть у gh-pages
+  - npm run deploy
+  - заходим в свой проект на Github => Code. Видим что появилась ветка gh-pages переходим на нее и видим что в ней толкьо 1 коммит Updates, а это значит что история у этой специальной ветки не сохраняется => Settings => Pages => Branch (gh-pages) => Save => Actions (видим запуск нового деплоя) => pages build and deployment => видим что деплоу создался и открыв старницу все так же без изменений, если хотим убедиться что теперь деплоу происходит из gh-pages, для этого откатим все назад и изменим в коде название title
+  - SOURCE CONTROL => в Changes вторая стрелка по кругу без плюса с всплывающей подсказкой: Discard All Changes => Discard All 428 Files => удаляем папку Dist => в index.html меняем title с Material Design Lite на MDL => сохраняем => создаем коммит и отправляем 
 
+### Версионирование пакетов: semantic version
 
 ### Передача изменений по элетронной почте при помощи PATCH (полезно когда репозиторий закрытый, но нужно поделиться изменениями с другими разработчиками)
 1. git diff [hash_commit] > my_patch.patch - данная команда находит коммит по хэшу коммита и сохраняет его в виде файла my_patch.patch в нужную дирректорию, затем файл можно отослать по эл почте. Что бы посмотреть хэш коммита используй git log. Название файла патча может быть любым, но рекомендуется указывать расширение .patch
