@@ -269,6 +269,27 @@ https://docs.github.com/ru/authentication/connecting-to-github-with-ssh/testing-
 3. Открываем Ваш аккаунт на Gitlab, переходим в нужный проект, открываем вкладку Issues => New issue => в Title описываем что у нас произошло, например: Лишняя кнопка view source => Write a descriptio or drag your files here...: Нужно удалить кнопку, чтобы пользователи не переходили в чужой репозиторий на Github => можем выбрать тип Issue или Incident => Assignees выбираем например себя => Labels => Create project label например что это bug и выбираем для него цвет нажимаем кнопку Create => задаём дедлайн до какого числа пофиксить проблему Due date => Projects можно привязать к какому то проекту => можно задать какой то Milestone например новый релиз => Create issue - создаем Issue
 
 ### Как создавать pull request и связывать его с issue
+1. git checkout -b remove-source-button - переходим в VS-code и в терминале создаем и переключаемся на ветку в которой будем исправлять данную проблему
+2. Рефакторим код (удаляем кнопку view-source в index.html) и проверяем что она пропала в браузере
+3. Создаём коммит в SOURCE CONTROL в строке Changes нажимаем + => пишем например: fix: удаляет кнопку view source => Commit => в терминале выполняем команду: git push origin | git push --set-upstream origin remove-source-button
+4. Переходим на Github в проект, видим что создалась в проекте ветка remove-source-button и Github предлагает автоматически создать Compare & pull request нажимаем эту кнопку => Add a title меняем fix: удаляет кнопку view source на Удаляет кнопку view source => можем назначить ревьюверов (тот кто будет смотреть наш код), Assignees (тот кто делает этот pull request), Lable и др. Часто pull request связан с Issue => в теле указываем что мы фиксим: Исправляет #1 => Create Pull request => кликаем на ссылку нашего issue #1 и переходим видим что в нем появляется обратная ссылка на наш pull request, статус его open
+5. Возвращаемся на предыдущую страницу. В pull request есть список коммитов, из какой ветки в какую будет вливание, можно посмотреть код Files changed и даже его проревьюить (возле номера строки изменений в коде нажать +) и оставить комментарий, например: Спасибо, что удалил! => Add single comment => комментарий будет виден на главной странице pull request
+6. После прохождения ревью можно принять или отвергнуть pull request => далее переходим на главную (вкладка Conversation в pull request)
+7. После нажатия кнопки Merge pull request и подтверждения Confirm merge наши изменения из ветки remove-source-button окажуться в master 
+8. Наш pull request переходит в статус Merged можем сразу удалить ветку Delete branch => переходим в наш код на master и смотрим что в index.html нет кнопки view sourse, а так же что на index.html повлиял коммит: fix: удаляет кнопку view source
+9. Переходим в issue И видим статус Merged
+10. Закрываем Issue как выполненный => Close issue и он закрывается => переходим во вкладку Issues и видим что у нас нету ни одного открытого и один закрытый issue 
+11. Теперь то же самое проделаем на Gitlab
+12. git push origin-gl - в терминале выполняем данную команду, после в терминале открываем ссылку remote:   https://gitlab.com/vitalyvitmens/mdl-blog/-/merge_requests/new?merge_request%5Bsource_branch%5D=remove-source-button     
+13. title меняем fix: удаляет кнопку view source на Удаляет кнопку view source
+14. в теле указываем что мы фиксим: Исправляет #1
+15. выбираем Merge options с галочкой Delete source branch
+16. нажимаем на строчку кода и выбираем сообщение что бы комментировать, например Comment test => Add comments now
+17. Вливаем мердж реквест => Overview => Merge
+18. По ссылке переходим в сам issue нажав на решетку в Mentions issue #1
+19. Далее можем закрыть issue для этого нажимаем кнопку Close issue
+
+### Что такое fork, когда он нужен и как с ним работать
 
 
 ### Передача изменений по элетронной почте при помощи PATCH (полезно когда репозиторий закрытый, но нужно поделиться изменениями с другими разработчиками)
