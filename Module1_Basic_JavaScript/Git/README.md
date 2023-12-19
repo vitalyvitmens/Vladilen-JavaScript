@@ -336,6 +336,25 @@ Github => project => settings => pages => Source (Deploy from a branch) => Branc
 1. Чтобы создать релиз в Github => Code => Tags => Releases => Create a new release => Choosw a tag (1.0.0) => Release title (1.0.0) => Describe this release (Инициализировали проект и подготовили к продакшну) => Generate release notes => Publish release
 
 ### Различные flow
+1. Git flow:
+  - основная ветка - master
+  - от master отводится ветка develop для влития выполненых задач
+  - разработка ведётся в ветках feature (например: feature/new-header), отведенных от develop
+  - когда мы готовы к релизу, то от develop отводим ветку release
+  - когда протестировали release вливаем его в develop и master, в master создаём тег указывающий на конкретный релиз
+  - хотфиксы отводятся от master, а вливаются в master и develop, в master создаём тег
+2. GitHub flow:
+  - основная ветка - master
+  - разработка ведётся в ветках feature (например: feature/new-header), отведенных от master
+  - когда мы готовы к релизу, то master выкатывается в продакшн, в master создаём тег указывающий когда мы выкатили в продакшн и его же поставить на наше продакшн окружение
+  - хотфиксы отводятся от master, вливаются в master, в master создаём тег и выкладываем этот код в продакшн
+3. GitLab flow:
+  - основная ветка - master
+  - разработка ведётся в ветках feature (например: feature/new-header), отведенных от master
+  - когда мы готовы к релизу, то master вливаем в ветку production
+  - хотфиксы отводятся от master, вливаются в master
+
+### Как работать по GitHub flow  
 
 
 ### Передача изменений по элетронной почте при помощи PATCH (полезно когда репозиторий закрытый, но нужно поделиться изменениями с другими разработчиками)
