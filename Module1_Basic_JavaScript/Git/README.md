@@ -355,6 +355,27 @@ Github => project => settings => pages => Source (Deploy from a branch) => Branc
   - хотфиксы отводятся от master, вливаются в master
 
 ### Как работать по GitHub flow  
+1. git checkout -b feature/remove-description - разработчик №1 от ветки master отводит свою ветку feature/remove-description и производит в ней свои изменения, например удаляет description
+2. git add .
+3. git commit -m "feat: удаляет description" - разработчик №1 создаёт коммит с его изменениями
+4. git push - разработчик №1 отправляет изменения в Github
+5. remote:   https://gitlab.com/vitalyvitmens/origin/pull/new/feature/remove-description - разработчик №1 в терминале сразу предлагается создать pull request, переходим по ссылке => Create pull request => Pull requests => feat: удаляет description => Files changed (Например нужно начать обсуждения) => (напртов строки кода нажимаем +) => Leave a comment (Точно ли нужно удалить description, а не только текст внутри?) => Add single comment => Review changes => Conversation => Merge pull request => Confirm merge => Code
+6. Разработчик №2 находясь на ветке master берет задачу на изменение title
+7. git checkout -b feature/change-title - разработчик №2 от ветки master отводит свою ветку feature/change-title и производит в ней свои изменения, например изменяет title
+8. git add .
+9. git commit -m "feat: изменяет title" - разработчик №2 создаёт коммит с его изменениями
+10. git push - разработчик №2 отправляет изменения в Github
+11. remote:   https://gitlab.com/vitalyvitmens/origin/pull/new/feature/change-title - разработчик №2 в терминале сразу предлагается создать pull request, переходим по ссылке => Create pull request => Pull requests => feat: изменяет title => Merge pull request => Confirm merge => Code
+12. git checkout master - разработчик №3 будет выкатывать релизить переключается на master
+13. git pull - разработчик №3 пулит самое актуальное состояние 
+14. git checkout -b release/1.0.0 - разработчик №3 отводит релизную ветку
+15. разработчик №3 внутри файла package.json над строкой "private" задает версию: "version": "1.0.0",
+16. git add .
+17. git commit -m "chore: release" - разработчик №3 создаёт коммит с его изменениями
+18. git push - разработчик №3 отправляет изменения в продакшн, если эта работа настроена через npm script и тогда именно в ээтот момент запускается этот npm script у кого то это происходит через CI - при пуше релизной ветки происходит выкладка в продакшн, предположим что в нашем случае выкладка и сборка происходит при пуше в определенную ветку, которая начинается с release/1.0.0
+19. remote:   https://gitlab.com/vitalyvitmens/origin/pull/new/release/1.0.0 - разработчик №3 в терминале сразу предлагается создать pull request, переходим по ссылке => Create pull request (и не вливаем его до тех пор пока релиз не окажется в продакшене) => Merge pull request => Confirm merge => Code
+
+### Правила командной работы
 
 
 ### Передача изменений по элетронной почте при помощи PATCH (полезно когда репозиторий закрытый, но нужно поделиться изменениями с другими разработчиками)
