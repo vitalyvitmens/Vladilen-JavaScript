@@ -333,6 +333,9 @@ Github => project => settings => pages => Source (Deploy from a branch) => Branc
 10. git push origin --delete test - удалить тег test в удаленном репозитории
 
 ### Релизы: как создавать и управлять
+1. Чтобы создать релиз в Github => Code => Tags => Releases => Create a new release => Choosw a tag (1.0.0) => Release title (1.0.0) => Describe this release (Инициализировали проект и подготовили к продакшну) => Generate release notes => Publish release
+
+### Различные flow
 
 
 ### Передача изменений по элетронной почте при помощи PATCH (полезно когда репозиторий закрытый, но нужно поделиться изменениями с другими разработчиками)
