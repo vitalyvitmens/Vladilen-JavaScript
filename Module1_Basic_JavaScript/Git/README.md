@@ -359,7 +359,7 @@ Github => project => settings => pages => Source (Deploy from a branch) => Branc
 2. git add .
 3. git commit -m "feat: удаляет description" - разработчик №1 создаёт коммит с его изменениями
 4. git push - разработчик №1 отправляет изменения в Github
-5. remote:   https://gitlab.com/vitalyvitmens/origin/pull/new/feature/remove-description - разработчик №1 в терминале сразу предлагается создать pull request, переходим по ссылке => Create pull request => Pull requests => feat: удаляет description => Files changed (Например нужно начать обсуждения) => (напртов строки кода нажимаем +) => Leave a comment (Точно ли нужно удалить description, а не только текст внутри?) => Add single comment => Review changes => Conversation => Merge pull request => Confirm merge => Code
+5. remote:   https://gitlab.com/vitalyvitmens/origin/pull/new/feature/remove-description - разработчик №1 в терминале сразу предлагается создать pull request, переходим по ссылке => Create pull request => Pull requests => feat: удаляет description => Files changed (Например нужно начать обсуждения) => (напротив строки кода нажимаем +) => Leave a comment (Точно ли нужно удалить description, а не только текст внутри?) => Add single comment => Review changes => Conversation => Merge pull request => Confirm merge => Code
 6. Разработчик №2 находясь на ветке master берет задачу на изменение title
 7. git checkout -b feature/change-title - разработчик №2 от ветки master отводит свою ветку feature/change-title и производит в ней свои изменения, например изменяет title
 8. git add .
@@ -375,7 +375,43 @@ Github => project => settings => pages => Source (Deploy from a branch) => Branc
 18. git push - разработчик №3 отправляет изменения в продакшн, если эта работа настроена через npm script и тогда именно в ээтот момент запускается этот npm script у кого то это происходит через CI - при пуше релизной ветки происходит выкладка в продакшн, предположим что в нашем случае выкладка и сборка происходит при пуше в определенную ветку, которая начинается с release/1.0.0
 19. remote:   https://gitlab.com/vitalyvitmens/origin/pull/new/release/1.0.0 - разработчик №3 в терминале сразу предлагается создать pull request, переходим по ссылке => Create pull request (и не вливаем его до тех пор пока релиз не окажется в продакшене) => Merge pull request => Confirm merge => Code
 
-### Правила командной работы
+### Правила командной работы на практике
+Например Вы отвели ветку test от master и что то сделали в своей ветке test и Вам нужно влить свои изменения в master, но в это время другие разработчики накоммитили в мастер
+1. Вы установили пакет будстрап в свое приложение и нас попросили вернуть зря удаленный description и изменить title
+2. git add .
+3. git commit -m "feat: добавляет react-bootstrap"
+4. git push
+5. git add .
+6. git commit -m "fix: изменяет title"
+7. git push
+8. remote:   https://gitlab.com/vitalyvitmens/origin/pull/new/test - Вам в терминале сразу предлагается создать pull request, переходим по ссылке и видим Can't automatically merge (ветка не может быть вмёрджена у нас конфликты в нескоьких файлах, мы можем пофиксить их в гитхабе нажав Resolve conglicts, но лучше в VS-code)
+9. Переходим в терминал VS-code что бы пофиксить конфликты:
+10. git checkout master
+11. git pull 
+12. git checkout -      - переключаемся на ту ветку где были до этого, на ветку test
+13. git rebase master - ребайзимся на мастер и видим что у нас есть несколько конфликтов. 
+14. Бывает 2 типа конфликтов: 
+  1. Когда чтото поменялось в функциональности. При устранении данных мердж конфликтов главное удалить <<<<<<< ========== >>>>>>> и помнить в верху то что в master суйчас, снизу то что у Вас в test сейчас:
+    - Accept Current Change (принять то что сверху)
+    - Accept Incoming Change (принять то что снизу)
+    - Accept Both Changes (принять всё)
+    - Compare Change ()
+    - Ctrl + S - сохраняем файл 
+  2. Конфликты в сгенерированных файлах например package-lock.json:
+    - Github => Code => package.json => Blame (увидим когда какие коммиты что меняли и поймем, что самым последним было изменение с добавление бутстрап реакт и понимаеч что кто тоже хотел добавить бутсрап и ошибся добавил не тот пакет) => VC-Code
+    - переходим в package.json, удаяем из него зависимость (строку с бутстрап реакт) и запускаем npm i Так как у нас сломан package-lock.json, то npm автоматически попробует разрезолвить конфликты, если у него получиться то мы получим правильный package-lock.json, если не получиться то npm создаст новый package-lock.json
+15. git add . - добавляем наши изменения
+16. git rebase --continue - продолжаем ребэйз, откроется интерактивное окно, закроем его тем самым подтверждая изменения, отлично мы все исправили осталось запушить
+17. git push -f - мы не можем просто так запушить, мы изменили хэш коммита и git не понимает куда поставить этот новый коммит, а самое главное куда деть старый, поэтому -f или --force
+18. Github => Pull requests => feat: изменяет title и добавляет react-bootstrap => видим что у нас все хорошо и можно мерджить, но допустим у нас произошли какие то изменения на master
+19. git checkout master
+20. В ветке master в package.json поменялась версия "version": "1.0.1",
+21. git add .
+22. git commit -m "chore: release"
+23. git push
+24. После внесения изменений в master наш Pull request пересчитается, желтая плашка покажет что в настоящий момент пересчитывает, если конфликтов нет, то будет зеленая кружок с галочкой и можно мерджить => Github => Pull requests => feat: изменяет title и добавляет react-bootstrap => Merge pull request (выбираем например: Rebase and merge) => Confirm merge => Code => commits (видим что у нас нет коммита Merge pull request..... а есть коммит feat: изменяет title и добавляет react-bootstrap как будто мы его сделали прям в master. Можно выбирать любую из понравившихся стратегий мерджа внутри Github)
+
+### Как сделать вклад в open-source
 
 
 ### Передача изменений по элетронной почте при помощи PATCH (полезно когда репозиторий закрытый, но нужно поделиться изменениями с другими разработчиками)
